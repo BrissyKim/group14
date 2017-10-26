@@ -1,6 +1,6 @@
 body{
-	background:#666;
-	color:#fff;
+	background:#fff;
+	color:#000;
 	font-family:arial;
 	line-height:1.4em;
 }
@@ -17,21 +17,28 @@ ul{
 .clr{
 	clear:both;
 }
-
+#header{
+	background: #047;
+	color: #fff;
+	margin:50px auto;
+	margin-bottom: 0px;
+	padding: 10px;
+}
 #container{
-	background: #333;
+	background: #fff;
 	width:960px;
-	margin:30px auto;
+	margin:40px auto;
 	overflow:hidden;
 	padding:10px;
 }
 
-#nav{
+#nav{	
 	height:40px;
-	background:#666;
-}
+	background:#333;
+	}
 
 #nav ul{
+	margin-top: 0px;
 	padding-top:13px;
 	padding-left:10px;
 }
@@ -44,26 +51,29 @@ ul{
 
 #nav .active{
 	font-weight: bold;
-	color:#000;
+	color:#fff;
 }
 
 #main{
-	float:left;
+	float:right;
 	width:60%;
 }
 
 #sidebar{
-	float:right;
+	float:left;
 	width:30%;
-	background:#666;
+	background:#dedede;
 	margin-top:20px;
 	padding:10px;
 }
-
+#sidebar ul{
+	padding-left: 20px;
+}
 #footer{
 	text-align: center;
+	color: #fff;
 	padding:10px;
-	background:#666;
+	background:#047;
 	margin-top:30px;
 }
 
