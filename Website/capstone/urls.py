@@ -19,7 +19,7 @@ from django.conf.urls import include, url
 from django.conf import settings
 from django.shortcuts import redirect
 from django.views.generic import RedirectView
-
+from django.conf.urls.static import static
 
 def root(request):
     return redirect('ifb:first_page')
@@ -33,9 +33,11 @@ urlpatterns = [
     url(r'^IFB/', include('ifb.urls', namespace='ifb')),
     url(r'^project/', include('project.urls', namespace='project')),
     url(r'^assignment/', include('assignment.urls', namespace='assignment')),
+    url(r'^reflection/', include('reflection.urls', namespace='reflection')),
     url(r'^accounts/', include('accounts.urls')),
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
      import debug_toolbar
