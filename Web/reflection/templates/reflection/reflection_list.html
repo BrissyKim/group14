@@ -1,0 +1,68 @@
+{% extends "reflection/layout.html" %}
+
+{% load bootstrap3 staticfiles %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Capstone Project</h1>
+            <p>QUT - IFB</p>
+            <p>
+              <a class="btn btn-lg btn-primary" href="/project/">
+                      Project &raquo;
+                  </a>
+              <a class="btn btn-lg btn-primary" href="/assignment/">
+                      Assignment &raquo;
+                      </a>
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+
+                <a href="{% url "reflection:reflection_new" %}" class = "btn btn-primary pull-right">New Reflection</a>
+
+                <p>
+                  <form action="" method="get">
+                    TEAM
+                      <input type="number" name="q" value="{{ q }}" />
+                      <input type="submit" value="Search" class="btn btn-primary" />
+                  </form>
+                </p>
+
+                {% if user.is_authenticated %}
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Team number</th>
+                            <th>Title</th>
+                            <th>Week</th>
+                            <th>Author</th>
+                            <th>Last Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reflection in reflection_list %}
+
+                              <tr>
+                                  <td>{{ reflection.team_number }}</td>
+                                  <td><a href="{% url "reflection:reflection_detail" reflection.id %}">{{ reflection.title }}</a></td>
+                                  <td>{{reflection.week}}</td>
+                                  <td><small>by {{ reflection.student_name }}</small></td>
+                                  <td><small>at {{ reflection.updated_at }}</small></td>
+                              </tr>
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
