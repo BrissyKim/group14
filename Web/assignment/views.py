@@ -4,6 +4,7 @@ from django.http import Http404, HttpResponseNotFound
 from django.shortcuts import get_object_or_404
 from .forms import AssignmentForm
 from django.views.generic import CreateView,ListView,DetailView,UpdateView, DeleteView
+from django.contrib import messages
 # Create your views here.
 
 def assignment_list(request):
@@ -26,6 +27,7 @@ def assignment_new(request):
         form = AssignmentForm(request.POST,request.FILES)
         if form.is_valid():
             assignment=form.save()
+            messages.success(request,'New post was saved')
             return redirect(assignment) #post.get_absoluteurl() => post detail view 고쳐야함;; 모르겠다
     else:
         form=AssignmentForm()

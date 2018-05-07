@@ -1,9 +1,29 @@
-{% extends "accounts/layout.html"%}
+{% extends "teams/layout.html"%}
 
 
 {% block content %}
 <div class="container">
-<h1>Students</h1>
+    <div class="jumbotron">
+        <h1>Capstone Team</h1>
+
+        <p>
+          <a class="btn btn-lg btn-primary" href="{% url "team_list" %}">
+                      Team List &raquo;
+                  </a>
+          {% for profile in profiles1 %}
+          <a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/accounts/students/teams/{{profile.team_number}}/">
+                  My Team &raquo;
+                  </a>
+          {% endfor %}
+        </p>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+
+<h1>Student List</h1>
+
+
 <br>
 
   <table class="table table-striped">
@@ -11,32 +31,35 @@
       <tr>
           <td><B>Team number</B></td>
           <td><B>Name</B></td>
+          <td><B>Student Number</B></td>
           <td><B>Email</B></td>
           <td><B>Major</B></td>
-          <td><B>GPA</B></td>
-
       </tr>
       </thead>
       <tbody>
       {% for profile in profiles %}
       <tr>
+          <td><a href="teams/{{profile.team_number}}/">{{profile.team_number}}</a>
+          </td>
           <td>{{profile.user}}</td>
           <td>{{profile.student_number}}</td>
           <td>{{user.email}}</td>
-          <td>{{profile.team}}</td>
+          <td>{{profile.major}}</td>
       </tr>
       {% endfor %}
       <tbody>
   </table>
 
 </div>
+</div>
+</div>
 
 <!-- The second value will be selected initially -->
-<select name="text"> <!--Supplement an id here instead of using 'text'-->
+<!--<select name="text"> Supplement an id here instead of using 'text'
   <option value="value1">Value 1</option>
   <option value="value2" selected>Value 2</option>
   <option value="value3">Value 3</option>
 </select>
-
+-->
 
 {%endblock%}

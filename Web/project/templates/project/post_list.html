@@ -8,14 +8,14 @@
     <div class="container">
         <div class="jumbotron">
             <h1>Capstone Project</h1>
-            <p>QUT - IFB</p>
+            <p>QUT - IFB398</p>
             <p>
-              <a class="btn btn-lg btn-primary" href="/project/">
-                      Project &raquo;
-                  </a>
               <a class="btn btn-lg btn-primary" href="/assignment/">
                       Assignment &raquo;
                       </a>
+              <a class="btn btn-lg btn-primary" href="/reflection/">
+                              Reflection &raquo;
+                              </a>
             </p>
         </div>
 
@@ -34,19 +34,22 @@
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>Project Number</th>
-                            <th>Project Name</th>
-                            <th>Project Owner</th>
-                            <th>Uploaded at</th>
+
+                          <th>Project Number</th>
+                          <th>Project Name</th>
+                          <th>Project Owner</th>
+                          <th>Uploaded at</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         {% for post in post_list %}
                             <tr>
-                                <td>{{ post.id }}</td>
                                 <td><a href="{% url "project:post_detail" post.id %}">{{ post.title }}</a></td>
+                                <td>{{ post.category }}</td>
                                 <td><small>by {{ post.user }}</small></td>
                                 <td><small>at {{ post.updated_at }}</small></td>
+
                             </tr>
                         {% endfor %}
                     </tbody>

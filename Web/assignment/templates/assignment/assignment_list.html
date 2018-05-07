@@ -13,24 +13,16 @@
                 <a class="btn btn-lg btn-primary" href="/project/">
                         Project &raquo;
                     </a>
-                <a class="btn btn-lg btn-primary" href="/assignment/">
-                        Assignment &raquo;
+
+                <a class="btn btn-lg btn-primary" href="/reflection/">
+                        Reflection &raquo;
                         </a>
+
             </p>
         </div>
 
         <div class="row">
             <div class="col-sm-12">
-              <!---
-                <div class="alert alert-info">
-                    <ul>
-                    <li>http://localhost:8000/assignment/ 주소로 접속해보세요.</li>
-                    <li>템플릿 경로를 blog/templates/post_list.html 경로가 아닌
-                    blog/ templates/blog/post_list.html 경로를 쓰는 지에 대한 이유는,
-                    후에 Template Loader에서 설명합니다.</li>
-                    </ul>
-                </div>
-                --->
                 <a href="{% url "assignment:assignment_new" %}" class = "btn btn-primary pull-right">New Assignment</a>
 
                 <p>
@@ -44,7 +36,7 @@
                         <tr>
                             <th>Assignment Number</th>
                             <th>Assignment Name</th>
-                            <th>Uploaded at</th>
+                            <th>Uploaded</th>
                         </tr>
                     </thead>
                     <tbody>

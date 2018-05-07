@@ -37,14 +37,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #socail login
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    ####
     'django_extensions',
     'debug_toolbar',
-    'bootstrap3',
+    'bootstrap3',    #bootstrap3
     'project',
     'assignment',
     'accounts',
     'ifb',
     'reflection',
+
+    #IFB399
+    'assignment399',
+    'reflection399',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'capstone.urls'
@@ -77,6 +90,23 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'capstone.wsgi.application'
+
+#socail login
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+
+SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
+
+LOGIN_REDIRECT_URL='/'
+
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
+SOCIALACCOUNT_ADAPTER = 'accounts.adapter.SocialAccountAdapter'
+SOCIALACCOUNT_AUTO_SIGNUP = False
+
 
 
 # Database
@@ -131,9 +161,9 @@ STATIC_URL = '/static/'
 INTERNAL_IPS = ["127.0.0.1"]
 
 STATICFILES_DIRS = [
- os.path.join(BASE_DIR, 'capstone', 'static'),
+ os.path.join(BASE_DIR),
 ]
-STATIC_ROOT =os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT =os.path.join(BASE_DIR,'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')

@@ -1,0 +1,25 @@
+{% extends "reflection399/layout399.html" %}
+ {% load bootstrap3 staticfiles %}
+ {% bootstrap_css %}
+ {% bootstrap_javascript %}
+
+ {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5 col-sm-6 col-lg-4 " >
+
+      <form class="" action="" method="post">
+          <legend>Reflection Form</legend>
+          {% csrf_token %}
+          {% bootstrap_form form %}
+
+          <input type="submit" class="btn btn-primary" name="" value="Submit">
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}

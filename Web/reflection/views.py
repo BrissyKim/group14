@@ -6,6 +6,8 @@ from .forms import ReflectionForm
 from django.contrib import messages
 from django.views.generic import CreateView,ListView,DetailView,UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+
 # Create your views here.
 
 def reflection_list(request):
@@ -23,6 +25,8 @@ def reflection_detail(request,id):
 
 
 def reflection_new(request):
+    users = User.objects.get(username=request.user.username)
+
     if request.method=='POST':
         form = ReflectionForm(request.POST,request.FILES)
         if form.is_valid():

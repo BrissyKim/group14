@@ -7,8 +7,8 @@
 {% block content %}
     <div class="container">
         <div class="jumbotron">
-            <h1>Capstone Project</h1>
-            <p>QUT - IFB</p>
+            <h1>Capstone Reflection</h1>
+            <p>QUT - IFB398</p>
             <p>
               <a class="btn btn-lg btn-primary" href="/project/">
                       Project &raquo;
@@ -32,15 +32,15 @@
                   </form>
                 </p>
 
-                {% if user.is_authenticated %}
+
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>Team number</th>
-                            <th>Title</th>
-                            <th>Week</th>
-                            <th>Author</th>
-                            <th>Last Updated</th>
+                          <th>Team number</th>
+                          <th>Title</th>
+                          <th>Week</th>
+                          <th>Author</th>
+                          <th>Uploaded</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,7 +57,7 @@
                         {% endfor %}
                     </tbody>
                 </table>
-                {% endif %}
+
 
             </div>
         </div>
